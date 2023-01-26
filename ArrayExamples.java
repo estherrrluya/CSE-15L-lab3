@@ -4,17 +4,23 @@ public class ArrayExamples {
 
   // Changes the input array to be in reversed order
   static void reverseInPlace(int[] arr) {
+    int[] currArr = new int[arr.length];
     for(int i = 0; i < arr.length; i += 1) {
-      arr[i] = arr[arr.length - i - 1];
+      currArr[i] = arr[i];
     }
-  }
+    for(int i = 0; i < arr.length; i += 1) {
+      arr[i] = currArr[arr.length - i - 1];
+    }
+  } 
 
   // Returns a *new* array with all the elements of the input array in reversed
   // order
   static int[] reversed(int[] arr) {
     int[] newArray = new int[arr.length];
+    int[] currArr = arr;
     for(int i = 0; i < arr.length; i += 1) {
-      arr[i] = newArray[arr.length - i - 1];
+      newArray[i] = currArr[arr.length - i - 1];
+      arr = newArray;
     }
     return arr;
   }
